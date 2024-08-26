@@ -1,8 +1,11 @@
 name: Generate feed and update GH pages
 
 on:
+  schedule:
+     - cron:  '30 6 * * MON-FRI'
   push:
     branches: "master"
+    workflow_dispatch:
 permissions:
   contents: read
 
@@ -21,6 +24,7 @@ jobs:
         python single.py --folder feeds --programma https://www.raiplaysound.it/programmi/caterpillar
         python single.py --folder feeds --programma https://www.raiplaysound.it/programmi/vivarai2
         python single.py --folder feeds --programma https://www.raiplaysound.it/programmi/back2back
+        python single.py --folder feeds --programma https://www.raiplaysound.it/programmi/grveneto
         python single.py --folder feeds https://www.raiplaysound.it/programmi/belve
         python single.py --folder feeds https://www.raiplaysound.it/programmi/festivaldisanremo
         python single.py --folder feeds https://www.raiplaysound.it/programmi/fedeliallalinealalineanonce
